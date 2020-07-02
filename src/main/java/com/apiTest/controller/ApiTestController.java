@@ -12,7 +12,7 @@ import com.apiTest.entity.User;
 
 @RestController
 public class ApiTestController {
-	
+	//tacking the request
 	@GetMapping(value = "/user",produces = {MediaType.APPLICATION_ATOM_XML_VALUE})
 	public User getAllUser() {
 		System.out.println("ApiTestController.getAllUser()");

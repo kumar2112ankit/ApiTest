@@ -4,7 +4,7 @@ import java.util.Date;
 
 
 
-
+//model class
 public class User {
 	private int id;
 	private String name;
