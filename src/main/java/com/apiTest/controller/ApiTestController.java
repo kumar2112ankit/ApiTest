@@ -4,26 +4,31 @@ package com.apiTest.controller;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apiTest.entity.User;
+import com.apiTest.service.UserService;
 
 @RestController
 public class ApiTestController {
+	@Autowired
+	private UserService serive;
 	//tacking the request
-	@GetMapping(value = "/user",produces = {MediaType.APPLICATION_ATOM_XML_VALUE})
-	public User getAllUser() {
+	@GetMapping(value = "/user")
+	public String getAllUser() {
 		System.out.println("ApiTestController.getAllUser()");
 		User user=new User();
-		user.setId(11);
-		user.setName("kumar");
-		user.setEmail("abc@abc.com");
-		Date date=new Date();
-		date.getHours();
-		user.setDate(date);
-		return user;
+		user.setName("alfa");
+		user.setEmail("email@kjhskdjgf");
+		boolean t=serive.savemethod(user);
+		if(t=true) {
+			return "registerd";
+		}
+		else 
+			return "faild";
 		
 	}
 
